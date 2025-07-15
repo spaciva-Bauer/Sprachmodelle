@@ -1,6 +1,10 @@
 Vorbereitungen zur einwandfreien Funktionalität aller Komponenten
 
 
+Hinweis: Die Ausführung des Notebooks zu lokalen Sprachmodellen kann nicht online erfolgen, da zur Kommunikation mit dem Sprachmodell der Ollama-Server benötigt wird.
+
+
+
 1. 	Installation von ollama, Installation der Jupyter-Notebooks z.B. über den Anaconda Navigator
 
 2.	Modelle von ollama: https://ollama.com/search
