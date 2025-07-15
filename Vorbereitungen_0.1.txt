@@ -1,4 +1,4 @@
-Vorbereitungen für die einwandfreie Funktionalität aller Komponenten
+Vorbereitungen zur einwandfreien Funktionalität aller Komponenten
 
 
 1. 	Installation von ollama, Installation der Jupyter-Notebooks z.B. über den Anaconda Navigator
