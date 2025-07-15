@@ -1,0 +1,27 @@
+1. 	Installation von ollama, Installation der Jupyter-Notebooks z.B. über den Anaconda Navigator
+
+2.	Modelle von ollama: https://ollama.com/search
+
+3.	Eingabeaufforderung (cmd):
+	ollama --version
+	ollama run gemma3:1b
+
+4.	C:\Users\fosbos>ollama list
+
+5.	a) Windows-Taste: Jupyter-Notebook-App starten oder b) Anaconda-Navigator "launch Jupyter-Notebook"
+
+6.	Jupyter-Webinterface: http://localhost:8888/tree
+
+7.	Erstelle einen Ordner über das Webinterface und lade die Beispiel-Dateien hoch
+
+8.	ollama-Notebook: Code-Zeile aktivieren und ausführen -> pip install ollama
+
+9.	Run -> Run all Cells
+
+10.	Open-AI-Notebook: Code-Zeile aktivieren und ausführen -> pip install openai 
+
+11.	API-Key einfügen!
+
+12. 	Run -> Run all Cells
+
+
