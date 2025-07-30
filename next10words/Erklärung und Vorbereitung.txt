@@ -1,0 +1,12 @@
+Erklärung und Vorbereitung:
+
+Installieren von Ollama gemma3:
+https://ollama.com/download/windows
+
+Konsole starten:
+cmd
+
+Befehlt eingeben:
+ollama pull gemma3
+
+Jupither-Notebook öffnen und los!
