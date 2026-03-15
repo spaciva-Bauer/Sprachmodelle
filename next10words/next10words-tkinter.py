@@ -2,7 +2,7 @@ import tkinter as tk
 import requests
 
 OLLAMA_URL = "http://localhost:11434/api/generate"
-OLLAMA_MODEL = "gemma3"
+OLLAMA_MODEL = "gemma3:1b"
 
 def ask_ollama_top_k(prompt, top_k=10):
     system_prompt = (
