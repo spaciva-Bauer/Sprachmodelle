@@ -1,74 +1,80 @@
-# Orange – Installationsanleitung für Lehrkräfte (Windows)
+# Orange – Installationsanleitung für Lehrkräfte 
 
-**Software:** Orange Data Mining | **Betriebssystem:** Windows 10/11 | **Stand:** 2025
-
----
+**Software:** Orange Data Mining
 
 ## 1. Was ist Orange?
 
 Orange ist eine Open-Source-Software für visuelle Datenanalyse und maschinelles Lernen. Workflows werden durch Verbinden von grafischen Bausteinen (sog. *Widgets*) erstellt – ohne Programmierkenntnisse. Orange eignet sich hervorragend für den Unterricht zu neuronalen Netzen, da Modelle interaktiv konfiguriert, trainiert und visualisiert werden können.
 
----
-
 ## 2. Systemvoraussetzungen
 
 | Anforderung | Minimum |
-|---|---|
-| Betriebssystem | Windows 10 (64-Bit) oder Windows 11 |
+| - | - |
+| Betriebssysteme | Windows, macOS, ... |
 | RAM | 4 GB (empfohlen: 8 GB) |
 | Speicherplatz | ca. 1,5 GB |
 | Internetzugang | für Installation und Add-ons erforderlich |
 | Administratorrechte | für die Standardinstallation erforderlich |
 
-> **Hinweis für schulische Umgebungen:** Falls keine Administratorrechte zur Verfügung stehen, kann Orange auch ohne Admin-Rechte installiert werden (siehe Abschnitt 4).
 
----
+> **Hinweis für schulische Umgebungen:** Falls keine Administratorrechte zur Verfügung stehen, kann Orange auch ohne Admin-Rechte installiert werden (siehe Abschnitt 4).
 
 ## 3. Standardinstallation (mit Administratorrechten)
 
 ### Schritt 1: Installer herunterladen
 
-1. Öffnen Sie die offizielle Website: **https://orangedatamining.com/download/**
+1. Öffnen Sie die offizielle Website: \*\*[https://orangedatamining.com/download/\*\*](https://orangedatamining.com/download/)
+
 2. Klicken Sie auf **„Download Orange"** (Windows-Version, .exe-Installer).
+
 3. Speichern Sie die Datei in einem lokalen Ordner (z. B. `Downloads`).
 
 ### Schritt 2: Installation durchführen
 
 1. Doppelklicken Sie auf die heruntergeladene `.exe`-Datei.
+
 2. Bestätigen Sie die UAC-Nachfrage (Administratorrechte) mit **„Ja"**.
+
 3. Wählen Sie im Installer:
-   - **Installationspfad** (Standard: `C:\Users\<Benutzername>\AppData\Local\Orange3` oder `C:\Program Files\Orange3`)
+
+   - **Installationspfad** (Standard: `C:\\\\Users\\\\\\\<Benutzername\\\>\\\\AppData\\\\Local\\\\Orange3` oder `C:\\\\Program Files\\\\Orange3`)
+
    - **„Install for all users"** (empfohlen an Schulrechnern, falls Admin-Rechte vorhanden)
+
 4. Klicken Sie auf **„Install"** und warten Sie ca. 3–5 Minuten.
+
 5. Nach Abschluss: **„Finish"** klicken. Orange startet automatisch.
 
 ### Schritt 3: Erste Programmöffnung
 
 - Orange öffnet sich mit einem leeren Canvas (Arbeitsfläche).
-- Links befindet sich die **Widget-Leiste**, rechts das **Workflow-Canvas**.
-- Beim ersten Start erscheint ggf. ein Willkommensdialog – dieser kann geschlossen werden.
 
----
+- Links befindet sich die **Widget-Leiste**, rechts das **Workflow-Canvas**.
+
+- Beim ersten Start erscheint ggf. ein Willkommensdialog – dieser kann geschlossen werden.
 
 ## 4. Installation ohne Administratorrechte (Portable-Variante)
 
 Falls auf Schulrechnern keine Admin-Rechte vorhanden sind:
 
-1. Laden Sie den **Miniconda-Installer** herunter: https://docs.conda.io/en/latest/miniconda.html
+1. Laden Sie den **Miniconda-Installer** herunter: [https://docs.conda.io/en/latest/miniconda.html](https://docs.conda.io/en/latest/miniconda.html)
+
 2. Installieren Sie Miniconda **„Just for me"** (kein Admin erforderlich).
+
 3. Öffnen Sie die **Anaconda Prompt** (wird mit Miniconda installiert).
+
 4. Geben Sie folgenden Befehl ein und bestätigen Sie mit Enter:
-   ```
-   conda create -n orange3 python=3.10
-   conda activate orange3
-   pip install orange3
-   python -m Orange.canvas
-   ```
-5. Orange startet nun im Browser-ähnlichen Modus.
+
+```
+conda create -n orange3 python=3.10    
+conda activate orange3    
+pip install orange3    
+python -m Orange.canvas
+```
+
+1. Orange startet nun im Browser-ähnlichen Modus.
 
 > **Alternative:** Fragen Sie Ihre IT-Administration, ob Orange zentral über ein Software-Deployment-System (z. B. Microsoft Intune, OPSI) ausgerollt werden kann.
-
----
 
 ## 5. Empfohlene Add-ons installieren
 
@@ -77,66 +83,75 @@ Für den Unterricht zu neuronalen Netzen ist das Add-on **„Neural Network"** s
 ### Installation über die Benutzeroberfläche:
 
 1. Orange öffnen.
+
 2. Menü: **Options → Add-ons…**
+
 3. Im Dialog erscheint eine Liste verfügbarer Erweiterungen.
+
 4. Folgende Add-ons auswählen (Häkchen setzen):
+
    - ☑ **Orange3-Educational** – interaktive Lernwidgets (Perzeptron-Visualisierung!)
+
    - ☑ **Orange3-Explain** – Erklärbarkeit von Modellen (optional, aber empfehlenswert)
+
 5. Klicken Sie auf **„OK"** und warten Sie, bis die Installation abgeschlossen ist.
+
 6. Orange neu starten.
 
 > **Wichtig:** Die Add-on-Installation benötigt einen aktiven Internetzugang.
-
----
 
 ## 6. Mitgelieferte Datensätze finden
 
 Orange enthält bereits eine Reihe eingebetteter Datensätze, die ohne eigene Dateien genutzt werden können.
 
 **Zugang über das Widget „File":**
+
 1. Widget **„File"** auf das Canvas ziehen.
+
 2. Doppelklicken → im Dateidialog auf das **Ordner-Symbol** klicken.
+
 3. Oben in der Liste erscheint **„Browse documentation datasets"** – hier sind alle mitgelieferten Datensätze aufgelistet.
 
 **Relevante eingebettete Datensätze für den Unterricht:**
 
 | Datensatz | Typ | Einsatz |
-|---|---|---|
+| - | - | - |
 | `iris.tab` | Klassifikation | Einstieg, linear separierbar |
 | `housing.tab` | Regression | Regression mit neuronalem Netz |
 | `zoo.tab` | Klassifikation | Mehrklassen-Problem |
 | `titanic.tab` | Klassifikation | Feature-Relevanz, Überanpassung |
 | `digits` (via Datasets-Widget) | Klassifikation | Bilderkennung (8×8 Pixel) |
 
----
 
 ## 7. Nützliche Einstellungen für den Unterrichtseinsatz
 
 - **Sprache:** Orange ist auf Englisch – Fachbegriffe können mit dem Lernmaterial verknüpft werden.
-- **Canvas-Zoom:** `Strg + Mausrad` zum Zoomen; `Strg + Shift + H` für „Fit to screen".
-- **Workflow speichern:** `Strg + S` → `.ows`-Datei (Orange Workflow). Diese Datei kann an Schülerinnen und Schüler verteilt werden.
-- **Workflow als Vorlage:** Erstellen Sie Workflows mit fehlenden Verbindungen – die SuS vervollständigen diese im Unterricht.
 
----
+- **Canvas-Zoom:** `Strg + Mausrad` zum Zoomen; `Strg + Shift + H` für „Fit to screen".
+
+- **Workflow speichern:** `Strg + S` → `.ows`-Datei (Orange Workflow). Diese Datei kann an Schülerinnen und Schüler verteilt werden.
+
+- **Workflow als Vorlage:** Erstellen Sie Workflows mit fehlenden Verbindungen – die SuS vervollständigen diese im Unterricht.
 
 ## 8. Fehlerbehebung
 
 | Problem | Lösung |
-|---|---|
+| - | - |
 | Orange startet nicht | Antivirenprogramm prüfen; Orange ggf. als Ausnahme hinzufügen |
 | Add-ons lassen sich nicht installieren | Proxy-Einstellungen der Schule prüfen; ggf. IT fragen |
 | Workflow öffnet sich leer | Überprüfen, ob das passende Add-on installiert ist |
 | Langsame Performance | RAM schließen; keine anderen Programme parallel öffnen |
 
----
 
 ## 9. Weiterführende Ressourcen
 
-- **Offizielle Dokumentation:** https://orangedatamining.com/docs/
-- **YouTube-Kanal (Orange Data Mining):** https://www.youtube.com/@OrangeDataMining
-- **Tutorials:** https://orangedatamining.com/blog/ (viele bebilderte Schritt-für-Schritt-Anleitungen)
-- **Educational Add-on:** https://github.com/biolab/orange3-educational
+- **Offizielle Dokumentation:** [https://orangedatamining.com/docs/](https://orangedatamining.com/docs/)
 
----
+- **YouTube-Kanal (Orange Data Mining):** https://www.youtube.com/@OrangeDataMining
+
+- **Tutorials:** [https://orangedatamining.com/blog/](https://orangedatamining.com/blog/) (viele bebilderte Schritt-für-Schritt-Anleitungen)
+
+- **Educational Add-on:** [https://github.com/biolab/orange3-educational](https://github.com/biolab/orange3-educational)
 
 *Erstellt für den Einsatz an Beruflichen Oberschulen in Bayern | Fach KIT, Jahrgangsstufe 12*
+
