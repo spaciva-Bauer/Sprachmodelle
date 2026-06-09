@@ -1,4 +1,4 @@
-# Orange – Installationsanleitung für Lehrkräfte 
+# Orange – Installationsanleitung für Lehrkräfte
 
 **Software:** Orange Data Mining
 
@@ -37,7 +37,7 @@ Orange ist eine Open-Source-Software für visuelle Datenanalyse und maschinelles
 
 3. Wählen Sie im Installer:
 
-   - **Installationspfad** (Standard: `C:\\\\Users\\\\\\\<Benutzername\\\>\\\\AppData\\\\Local\\\\Orange3` oder `C:\\\\Program Files\\\\Orange3`)
+   - **Installationspfad** (Standard: `C:\\\\Users\\\\\\\<Benutzername\\\\\\\>\\\\AppData\\\\\\\\Local\\\\Orange3` oder `C:\\\\Program Files\\\\Orange3`)
 
    - **„Install for all users"** (empfohlen an Schulrechnern, falls Admin-Rechte vorhanden)
 
@@ -66,9 +66,9 @@ Falls auf Schulrechnern keine Admin-Rechte vorhanden sind:
 4. Geben Sie folgenden Befehl ein und bestätigen Sie mit Enter:
 
 ```
-conda create -n orange3 python=3.10    
-conda activate orange3    
-pip install orange3    
+conda create -n orange3 python=3.10        
+conda activate orange3        
+pip install orange3        
 python -m Orange.canvas
 ```
 
@@ -90,9 +90,9 @@ Für den Unterricht zu neuronalen Netzen ist das Add-on **„Neural Network"** s
 
 4. Folgende Add-ons auswählen (Häkchen setzen):
 
-   - ☑ **Orange3-Educational** – interaktive Lernwidgets (Perzeptron-Visualisierung!)
+   - ☑ **Educational** – interaktive Lernwidgets (Perzeptron-Visualisierung!)
 
-   - ☑ **Orange3-Explain** – Erklärbarkeit von Modellen (optional, aber empfehlenswert)
+   - ☑ **Explain** – Erklärbarkeit von Modellen (optional, aber empfehlenswert)
 
 5. Klicken Sie auf **„OK"** und warten Sie, bis die Installation abgeschlossen ist.
 
