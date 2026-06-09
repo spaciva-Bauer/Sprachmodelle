@@ -1,9 +1,9 @@
 # Arbeitsblatt: Neuronale Netze mit Orange
+
 ### KIT | Technik | Jahrgangsstufe 12 | Unterrichtseinheit 1 (90 min)
 
 **Lernziele:** Sie können das Perzeptron-Modell in Orange nachbilden, eine lineare Entscheidungsgrenze visualisieren, einen Datensatz klassifizieren und den Einfluss von Trainingsparametern beobachten.
 
----
 
 ## A | Wiederholung: Das Perzeptron (15 min)
 
@@ -12,37 +12,37 @@ Beantworten Sie die folgenden Fragen in Stichpunkten:
 **1.** Welche drei Bestandteile hat ein Perzeptron? Beschriften Sie die Skizze.
 
 ```
-        w₁
-  x₁ ──────┐
-            │
-        w₂  ├──► [ Σ ] ──► f(net) ──► ŷ
-  x₂ ──────┘
-            │
-        w₃  │
-  x₃ ──────┘
+        w₁  
+  x₁ ──────┐  
+            │  
+        w₂  ├──► \[ Σ \] ──► f(net) ──► ŷ  
+  x₂ ──────┘  
+            │  
+        w₃  │  
+  x₃ ──────┘  
      (Bias)
 ```
 
 *Beschriftungen:* `x₁, x₂` = \_\_\_\_\_\_\_\_ | `w₁, w₂` = \_\_\_\_\_\_\_\_ | `f(net)` = \_\_\_\_\_\_\_\_
 
----
 
 **2.** Was versteht man unter der **Delta-Lernregel**? Ergänzen Sie die Lücken:
 
 Das Gewicht wird um den Anteil **η · (y – ŷ) · xᵢ** angepasst, wobei:
+
 - η (Eta) = \_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_ (Lernrate)
+
 - y = \_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_ (tatsächlicher Wert)
+
 - ŷ = \_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_ (Vorhersage des Modells)
 
----
 
 **3.** Welche Art von Daten kann ein **einzelnes Perzeptron** korrekt klassifizieren?
 
 ☐ beliebige Daten  
 ☐ linear separierbare Daten  
-☐ nur numerische Daten  
+☐ nur numerische Daten
 
----
 
 ## B | Orange einrichten: Entscheidungsgrenze und Perzeptron (25 min)
 
@@ -51,87 +51,94 @@ Das Gewicht wird um den Anteil **η · (y – ŷ) · xᵢ** angepasst, wobei:
 Bauen Sie folgenden Workflow in Orange auf, indem Sie die Widgets per Drag & Drop auf das Canvas ziehen und verbinden:
 
 ```
-[ File ] ──► [ Data Table ] ──► [ Scatter Plot ]
+\[ File \] ──► \[ Data Table \] ──► \[ Scatter Plot \]
 ```
 
 1. **File-Widget** öffnen → **„Browse documentation datasets"** → Datensatz **`iris.tab`** auswählen.
-2. **Data Table** öffnen: Wie viele Zeilen und Spalten hat der Datensatz? 
 
-   Zeilen: \_\_\_\_\_\_ | Spalten: \_\_\_\_\_\_ | Klassen (Zielwerte): \_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_
+2. **Data Table** öffnen: Wie viele Zeilen und Spalten hat der Datensatz?
+
+Zeilen: \_\_\_\_\_\_ | Spalten: \_\_\_\_\_\_ | Klassen (Zielwerte): \_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_
 
 3. **Scatter Plot** öffnen: Setzen Sie die Achsen auf `petal length` (x) und `petal width` (y).
 
-   > **Tipps bei Darstellungsproblemen:**
-   > - *Nur ein Punkt sichtbar:* Doppelklick in die Plotfläche → Zoom passt sich automatisch an.
-   > - *Nur eine Klasse sichtbar:* Im **Data Table**-Widget ist eine Zeile markiert, die den Datenstrom filtert. Rechtsklick in die Tabelle → **„Clear Selection"** (oder `Esc`) – danach zeigt der Scatter Plot alle Klassen.
-   
-   Sind die drei Klassen **linear separierbar**? Begründen Sie kurz:
-   
-   \_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_
+> **Tipps bei Darstellungsproblemen:**
 
----
+>    - *Nur ein Punkt sichtbar:* Doppelklick in die Plotfläche → Zoom passt sich automatisch an.
+
+>    - *Nur eine Klasse sichtbar:* Im **Data Table**-Widget ist eine Zeile markiert, die den Datenstrom filtert. Rechtsklick in die Tabelle → **„Clear Selection"** (oder `Esc`) – danach zeigt der Scatter Plot alle Klassen.
+
+Sind die drei Klassen **linear separierbar**? Begründen Sie kurz:
+
+\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_
+
 
 ### Aufgabe B2 – Die Entscheidungsgrenze visualisieren (Add-on: Educational)
 
 Das Widget **„Polynomial Classification"** (Kategorie **Educational**) zeigt live, wie eine Entscheidungsgrenze beim Training entsteht. Bauen Sie folgenden Workflow auf:
 
 ```
-[ File ] ──► [ Polynomial Classification ]
+\[ File \] ──► \[ Polynomial Classification \]
 ```
 
 1. Öffnen Sie das Widget. Stellen Sie ein:
+
    - **Degree: 1** (lineare Entscheidungsgrenze – entspricht einem Perzeptron)
+
    - **Learner: Logistic Regression**
+
    - Achsen: `petal length` und `petal width`
 
 2. Beschreiben Sie, was die farbigen Flächen im Diagramm bedeuten:
 
-   \_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_
+\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_
 
 3. Erhöhen Sie **Degree auf 2, dann 3**. Was verändert sich an der Entscheidungsgrenze?
 
-   \_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_
+\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_
 
 4. Bei welchem Degree werden alle drei Klassen korrekt getrennt? \_\_\_\_\_\_
 
-   Was bedeutet das für ein **einfaches Perzeptron** (Degree 1) beim Iris-Datensatz?
+Was bedeutet das für ein **einfaches Perzeptron** (Degree 1) beim Iris-Datensatz?
 
-   \_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_
+\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_
 
----
 
 ### Aufgabe B3 – Das Perzeptron als Neural Network nachbilden
 
 Ein einzelnes Neuron ohne versteckte Schicht entspricht funktional einem Perzeptron. Konfigurieren Sie das **Neural Network**-Widget (Kategorie **Model**) als „Einzel-Neuron":
 
 ```
-[ File ] ──► [ Test and Score ] ──► [ Confusion Matrix ]
-                     ▲
-            [ Neural Network ]
+\[ File \] ──► \[ Test and Score \] ──► \[ Confusion Matrix \]  
+                     ▲  
+            \[ Neural Network \]
 ```
 
 Einstellungen im Neural Network-Widget:
+
 - **Hidden Layers:** Feld **leeren** (keine versteckten Schichten → Eingabe direkt zur Ausgabe)
+
 - **Activation:** Logistic
+
 - **Max Iterations:** 100
 
 1. Welche Einstellungen können Sie im Neural Network-Widget vornehmen?
 
-   ☐ Lernrate  ☐ Anzahl Hidden Layers  ☐ Max. Iterationen  ☐ Aktivierungsfunktion  ☐ Regularisierung
+☐ Lernrate  ☐ Anzahl Hidden Layers  ☐ Max. Iterationen  ☐ Aktivierungsfunktion  ☐ Regularisierung
 
 2. Starten Sie das Training. Was zeigt die **Confusion Matrix**?
 
-   | | vorhergesagt: Iris-setosa | vorhergesagt: Iris-versicolor | vorhergesagt: Iris-virginica |
-   |---|---|---|---|
-   | tatsächlich: Iris-setosa | | | |
-   | tatsächlich: Iris-versicolor | | | |
-   | tatsächlich: Iris-virginica | | | |
+|  | vorhergesagt: Iris-setosa | vorhergesagt: Iris-versicolor | vorhergesagt: Iris-virginica |
+| - | - | - | - |
+| tatsächlich: Iris-setosa |  |  |  |
+| tatsächlich: Iris-versicolor |  |  |  |
+| tatsächlich: Iris-virginica |  |  |  |
+
 
 3. Wie hoch ist die **Klassifikationsgenauigkeit** (Accuracy)? \_\_\_\_\_\_\_\_ %
 
-   Vergleichen Sie mit dem Ergebnis aus B2 (Degree 1): Stimmt das Ergebnis ungefähr überein? ☐ Ja  ☐ Nein
+Vergleichen Sie mit dem Ergebnis aus B2 (Degree 1): Stimmt das Ergebnis ungefähr überein? ☐ Ja  ☐ Nein
 
----
 
 ## C | Technischer Datensatz: Fehlerklassifikation (25 min)
 
@@ -146,9 +153,9 @@ Laden Sie den Datensatz **`ionosphere.tab`** (Klassifikation von Radarsignalen: 
 Erstellen Sie folgenden Workflow:
 
 ```
-[ File ] ──► [ Data Sampler ] ──► [ Neural Network ] ──► [ Test and Score ]
-                                                    ▲
-                                  [ File ] ──────────┘
+\[ File \] ──► \[ Data Sampler \] ──► \[ Neural Network \] ──► \[ Test and Score \]  
+                                                    ▲  
+                                  \[ File \] ──────────┘
 ```
 
 > **Vereinfachung:** Nutzen Sie stattdessen Cross-Validation direkt im **„Test and Score"**-Widget.
@@ -156,54 +163,56 @@ Erstellen Sie folgenden Workflow:
 **Vereinfachter Workflow:**
 
 ```
-[ File ] ──► [ Test and Score ] ──► [ Confusion Matrix ]
-                     ▲
-            [ Neural Network ]
+\[ File \] ──► \[ Test and Score \] ──► \[ Confusion Matrix \]  
+                     ▲  
+            \[ Neural Network \]
 ```
 
 So verbinden Sie korrekt:
+
 - **File** → Port „Data" von **Test and Score**
+
 - **Neural Network** → Port „Learner" von **Test and Score**
 
----
 
 ### Aufgabe C2 – Neuronales Netz konfigurieren
 
 1. Öffnen Sie das **Neural Network**-Widget. Notieren Sie die Standardkonfiguration:
 
-   | Parameter | Standardwert | Ihre Einstellung (Aufgabe C3) |
-   |---|---|---|
-   | Hidden Layer Neurons | | |
-   | Activation | | |
-   | Max Iterations | | |
-   | Regularization (α) | | |
+| Parameter | Standardwert | Ihre Einstellung (Aufgabe C3) |
+| - | - | - |
+| Hidden Layer Neurons |  |  |
+| Activation |  |  |
+| Max Iterations |  |  |
+| Regularization (α) |  |  |
+
 
 2. Führen Sie die Auswertung durch. Notieren Sie die Ergebnisse aus **Test and Score**:
 
-   | Metrik | Wert |
-   |---|---|
-   | Accuracy (CA) | |
-   | AUC | |
-   | F1-Score | |
+| Metrik | Wert |
+| - | - |
+| Accuracy (CA) |  |
+| AUC |  |
+| F1-Score |  |
 
----
+
 
 ### Aufgabe C3 – Einfluss der Netzarchitektur untersuchen
 
 Verändern Sie die Netzarchitektur im Neural Network-Widget und notieren Sie jeweils die Accuracy:
 
 | Hidden Layers / Neuronen | Accuracy (CA) | Beobachtung |
-|---|---|---|
-| 1 Schicht, 10 Neuronen | | |
-| 1 Schicht, 100 Neuronen | | |
-| 2 Schichten, je 50 Neuronen | | |
-| 3 Schichten, je 20 Neuronen | | |
+| - | - | - |
+| 1 Schicht, 10 Neuronen |  |  |
+| 1 Schicht, 100 Neuronen |  |  |
+| 2 Schichten, je 50 Neuronen |  |  |
+| 3 Schichten, je 20 Neuronen |  |  |
+
 
 **Frage:** Ab welcher Netzgröße beobachten Sie keine weitere Verbesserung oder sogar eine Verschlechterung? Was könnte die Ursache sein?
 
 \_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_
 
----
 
 ## D | Vergleich: Einzel-Neuron vs. neuronales Netz (15 min)
 
@@ -212,9 +221,9 @@ Verändern Sie die Netzarchitektur im Neural Network-Widget und notieren Sie jew
 Ergänzen Sie den Workflow, sodass **zwei Neural Network-Instanzen** gleichzeitig ausgewertet werden – eine ohne Hidden Layer (= Perzeptron-Modus), eine mit:
 
 ```
-[ File ] ──► [ Test and Score ] ──► [ Confusion Matrix ]
-                  ▲              ▲
-   [ NN: kein Hidden Layer ]   [ NN: 1 Schicht, 100 Neuronen ]
+\[ File \] ──► \[ Test and Score \] ──► \[ Confusion Matrix \]  
+                  ▲              ▲  
+   \[ NN: kein Hidden Layer \]   \[ NN: 1 Schicht, 100 Neuronen \]
 ```
 
 > Ziehen Sie das Neural Network-Widget **zweimal** auf das Canvas und konfigurieren Sie jede Instanz separat. Beide verbinden Sie mit dem Port „Learner" von **Test and Score**.
@@ -222,11 +231,11 @@ Ergänzen Sie den Workflow, sodass **zwei Neural Network-Instanzen** gleichzeiti
 Tragen Sie die Ergebnisse ein:
 
 | Modell | Konfiguration | Accuracy | Stärken | Schwächen |
-|---|---|---|---|---|
-| NN (Perzeptron-Modus) | kein Hidden Layer, Logistic | | | |
-| Neural Network | 1 Schicht, 100 Neuronen, ReLU | | | |
+| - | - | - | - | - |
+| NN (Perzeptron-Modus) | kein Hidden Layer, Logistic |  |  |  |
+| Neural Network | 1 Schicht, 100 Neuronen, ReLU |  |  |  |
 
----
+
 
 ### Aufgabe D2 – Reflexion
 
@@ -234,39 +243,41 @@ Beantworten Sie folgende Fragen in vollständigen Sätzen:
 
 1. Warum erzielt das neuronale Netz bei nicht-linear separierbaren Daten bessere Ergebnisse als das Perzeptron?
 
-   \_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_
+\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_
 
 2. Welche Rolle spielen die **versteckten Schichten** (Hidden Layers) im neuronalen Netz?
 
-   \_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_
+\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_
 
 3. Nennen Sie ein weiteres technisches Anwendungsbeispiel, bei dem ein neuronales Netz sinnvoll eingesetzt werden könnte:
 
-   \_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_
+\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_
 
----
 
 ## E | Sicherung & Ergebnissicherung (15 min)
 
-- Speichern Sie Ihren fertigen Orange-Workflow: **Datei → Speichern unter** → `KIT_Neuronale_Netze_<IhrName>.ows`
+- Speichern Sie Ihren fertigen Orange-Workflow: **Datei → Speichern unter** → `KIT\_Neuronale\_Netze\_\<IhrName\>.ows`
+
 - Machen Sie einen **Screenshot** der Confusion Matrix und fügen Sie ihn in Ihr Heft/Portfolio ein.
 
 ### Zusammenfassung der heutigen Stunde – ergänzen Sie:
 
 | Begriff | Erklärung (eigene Worte) |
-|---|---|
-| Perzeptron | |
-| Aktivierungsfunktion | |
-| Hidden Layer | |
-| Overfitting | |
-| Accuracy | |
+| - | - |
+| Perzeptron |  |
+| Aktivierungsfunktion |  |
+| Hidden Layer |  |
+| Overfitting |  |
+| Accuracy |  |
 
----
+
 
 ### Verwendete Datensätze heute:
+
 - **`iris.tab`** – Klassifikation von Blumenarten (eingebettet in Orange)
+
 - **`ionosphere.tab`** – Radarsignal-Klassifikation (eingebettet in Orange)
 
----
 
 *KIT | Technik | Jahrgangsstufe 12 | Berufliche Oberschule Bayern*
+
