@@ -130,19 +130,15 @@ Verwenden Sie denselben Datensatz (Regression). Variieren Sie die Modellgröße 
 
 ### Aufgabe C1 – Digits-Datensatz (Bilderkennung)
 
-> **Datensatz:** In Orange über das Widget **„Datasets"** (Kategorie: Data) → **`Digits`** auswählen.
-> Alternativ: eingebetteter Datensatz `digits` (handgeschriebene Ziffern, 8×8 Pixel = 64 Features, 10 Klassen: 0–9).
+> **Datensatz:** Die Datei `digits_8x8.tab` wurde von Ihrer Lehrkraft vorbereitet und bereitgestellt (handgeschriebene Ziffern, 8×8 Pixel = 64 Features, 10 Klassen: 0–9). Laden Sie sie über das **File-Widget**.
 >
 > **Technischer Bezug:** Optische Zeichenerkennung (OCR) wird in der Industrie zur automatischen Erfassung von Seriennummern, Messwerten auf Anzeigen und Barcodes eingesetzt.
 
 **Workflow:**
 ```
-[ Datasets ] ──► [ Image Viewer ] (optional, zur Visualisierung)
-      │
-      ▼
-[ Test and Score ] ──► [ Confusion Matrix ]
-      ▲        ▲
-[ Neural Network ] [ Logistic Regression ] (Vergleich)
+[ File ] ──► [ Test and Score ] ──► [ Confusion Matrix ]
+                   ▲        ▲
+       [ Neural Network ] [ Logistic Regression ] (Vergleich)
 ```
 
 1. Wie viele Bilder enthält der Datensatz? \_\_\_\_\_\_ | Wie viele Features pro Bild? \_\_\_\_\_\_
@@ -166,7 +162,7 @@ Verwenden Sie denselben Datensatz (Regression). Variieren Sie die Modellgröße 
 1. Fügen Sie das Widget **„Rank"** (Kategorie: Data) zwischen Datensatz und Modell ein:
 
    ```
-   [ Datasets ] ──► [ Rank ] ──► [ Test and Score ]
+   [ File ] ──► [ Rank ] ──► [ Test and Score ]
    ```
 
 2. Welche Features (Pixel-Positionen) haben die höchste Relevanz für die Klassifikation?
@@ -187,9 +183,9 @@ Verwenden Sie denselben Datensatz (Regression). Variieren Sie die Modellgröße 
 Verwenden Sie den **Data Sampler**, um nur einen **Bruchteil der Digits-Daten** zu trainieren:
 
 ```
-[ Datasets ] ──► [ Data Sampler ] ──► [ Test and Score ] ──► [ Confusion Matrix ]
-                                              ▲
-                                     [ Neural Network ]
+[ File ] ──► [ Data Sampler ] ──► [ Test and Score ] ──► [ Confusion Matrix ]
+                                          ▲
+                                 [ Neural Network ]
 ```
 
 Im **Data Sampler**: Samplingrate variieren.
@@ -246,7 +242,7 @@ Diskutieren Sie kurz in Partnerarbeit und notieren Sie Ihre Antwort:
 |---|---|---|---|
 | `housing.tab` | Orange (eingebettet) | Boston Housing-Daten (Mietpreise) | Regression |
 | `ENB2012_data.csv` | UCI ML Repository | Gebäude-Energieverbrauch | Regression |
-| `Digits` | Orange Datasets-Widget | Handgeschriebene Ziffern 0–9, 8×8px | Klassifikation |
+| `digits_8x8.tab` | UCI ML Repository (von Lehrkraft vorbereitet) | Handgeschriebene Ziffern 0–9, 8×8px | Klassifikation |
 | `ionosphere.tab` | Orange (eingebettet) | Radarsignal-Klassifikation | Klassifikation |
 
 ### Empfohlene weitere Datensätze (für eigenständige Erkundung):

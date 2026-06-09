@@ -101,7 +101,7 @@ Overfitting erkennt man daran, dass R² (Trainingsdaten) **deutlich höher** ist
    - Ziffer **4** ↔ **9** (ähnliche obere Hälfte)
    - Ziffer **1** ↔ **7** (bei schlechter Handschrift)
 
-   > Tipp für die Klasse: Die Verwechslungen im 8×8-Raster sind leicht nachvollziehbar, wenn man sich die Bilder im Image Viewer ansieht – eine gute Diskussionsgrundlage.
+   > Tipp für die Klasse: Die Verwechslungen sind anschaulich, wenn man sich einzelne Zeilen im **Data Table**-Widget ansieht (Pixelwerte der falsch klassifizierten Instanzen) – das reicht als Diskussionsgrundlage.
 
 4. **Plausibilität der Verwechslungen:**
    Ziffern wie 3 und 8 teilen viele strukturelle Merkmale auf Pixel-Ebene (geschwungene Linien, ähnliche Belegung der Rasterzellen). Bei niedriger Auflösung (8×8) sind die Unterschiede minimal. Das Modell reagiert auf Pixelmuster, nicht auf semantische Bedeutung.
@@ -186,6 +186,24 @@ Bei **unbalancierten Klassen** oder wenn die Kosten von Fehlern asymmetrisch sin
 ---
 
 ## Zusatzhinweise für die Lehrkraft
+
+### Zur Vorbereitung der Datei `digits_8x8.tab`
+Die SuS benötigen diese Datei für Abschnitt C und D. Sie wird einmalig auf dem Lehrerrechner erzeugt und dann z. B. über das Schulnetz, Moodle oder USB-Stick bereitgestellt.
+
+**Erzeugung (Python, einmalig):**
+```python
+from sklearn.datasets import load_digits
+import pandas as pd
+
+digits = load_digits()
+df = pd.DataFrame(digits.data, columns=[f"pixel_{i}" for i in range(64)])
+df["digit"] = digits.target.astype(str)  # String → Orange erkennt Klassifikation
+df.to_csv("digits_8x8.tab", sep="\t", index=False)
+```
+
+Das erzeugte `digits_8x8.tab` enthält 1.797 Instanzen, 64 numerische Features und die Zielspalte `digit` (Werte `"0"`–`"9"`). Orange erkennt `.tab`-Dateien direkt; der Zieltyp wird automatisch als kategorisch erkannt.
+
+> **Hinweis:** Python und scikit-learn müssen auf dem Rechner installiert sein. Falls nicht vorhanden, kann das Skript alternativ in einer JupyterHub-Umgebung ausgeführt werden.
 
 ### Zum ENB2012-Datensatz
 Falls der Download über das UCI-Repository Probleme bereitet: Die Datei ist auch auf Kaggle verfügbar. Als Alternative eignet sich `housing.tab` (direkt in Orange), wobei der Technikbezug geringer ist. Der Datensatz `autompg.tab` (Kraftstoffverbrauch, direkt eingebettet) ist ebenfalls eine gute Regression-Alternative mit technischem Bezug.
