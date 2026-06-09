@@ -50,18 +50,20 @@
 
 **Aufgabe B2 – Polynomial Classification (Educational)**
 
-1. **Bedeutung der farbigen Flächen:** Jede Farbe entspricht dem Bereich, den das Modell einer Klasse zuordnet – die Farbflächen sind die **Entscheidungsregionen**, die Grenzen dazwischen die **Entscheidungsgrenzen**.
+1. **Bedeutung der farbigen Flächen:** Jede Farbe entspricht dem Bereich, den das Modell einer Klasse zuordnet – die Farbflächen sind die **Entscheidungsregionen**, die Grenzen dazwischen die **Entscheidungsgrenzen**. Mit „Show contours" werden die Grenzen als Linien eingezeichnet.
 
-2. **Veränderung bei höherem Degree:**
-   - Degree 1: gerade Linie (linear) – entspricht einem Perzeptron
-   - Degree 2: gebogene Kurve (quadratisch) – kann einfache Krümmungen modellieren
-   - Degree 3+: zunehmend komplexere, gewundene Grenzen
+2. **Veränderung bei höherer Polynomial expansion:**
+   - Expansion 1: gerade Trennlinie (linear) – entspricht einem Perzeptron
+   - Expansion 2: gebogene Kurve (quadratisch) – kann einfache Krümmungen modellieren
+   - Expansion 3+: zunehmend komplexere, gewundene Grenzen
 
-3. **Ab welchem Degree korrekte Trennung:** Bereits ab Degree 2 verbessert sich die Trennung deutlich; ab Degree 3 sind alle drei Klassen in der Regel korrekt getrennt (abhängig von der Achsenwahl).
+3. **Ab welchem Wert korrekte Trennung:** Ab Polynomial expansion 2–3 verbessert sich die Trennung deutlich; alle drei Klassen sind dann in der Regel getrennt (abhängig von der Variablenwahl).
 
-   **Schlussfolgerung für das Perzeptron (Degree 1):** Eine einzelne Gerade kann beim Iris-Datensatz nicht alle drei Klassen gleichzeitig korrekt trennen, da *versicolor* und *virginica* überlappen. Das Perzeptron versagt hier an der fehlenden linearen Separierbarkeit.
+   **Schlussfolgerung für das Perzeptron (Expansion 1):** Eine einzelne Gerade kann beim Iris-Datensatz nicht alle drei Klassen gleichzeitig korrekt trennen, da *versicolor* und *virginica* überlappen. Das Perzeptron versagt hier wegen fehlender linearer Separierbarkeit.
 
-> Didaktischer Hinweis: Das Widget eignet sich gut für eine kurze Klassendiskussion – „Warum reicht eine Gerade nicht?" ist eine produktive Einstiegsfrage.
+> Didaktischer Hinweis: Das Widget zeigt die Entscheidungsgrenze unmittelbar sichtbar – „Warum reicht eine Gerade nicht?" ist eine produktive Klassendiskussion. Mit der **Target**-Einstellung kann man jeweils eine Klasse in den Vordergrund stellen.
+
+> Hinweis zur Variablenwahl: Mit `sepal length`/`sepal width` (Standardeinstellung des Widgets) ist die Überlappung stärker. Für eine klarere Darstellung empfiehlt sich `petal length`/`petal width`.
 
 ---
 
