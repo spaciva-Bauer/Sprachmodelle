@@ -196,12 +196,25 @@ from sklearn.datasets import load_digits
 import pandas as pd
 
 digits = load_digits()
-df = pd.DataFrame(digits.data, columns=[f"pixel_{i}" for i in range(64)])
-df["digit"] = digits.target.astype(str)  # String → Orange erkennt Klassifikation
-df.to_csv("digits_8x8.tab", sep="\t", index=False)
+
+col_names = [f"pixel_{i}" for i in range(64)] + ["digit"]
+types     = ["continuous"] * 64 + ["discrete"]
+roles     = ["feature"]    * 64 + ["class"]
+
+df = pd.DataFrame(digits.data, columns=col_names[:64])
+df["digit"] = digits.target.astype(str)
+
+# Orange .tab-Format erfordert drei Kopfzeilen: Name / Typ / Rolle
+with open("digits_8x8.tab", "w", encoding="utf-8") as f:
+    f.write("\t".join(col_names) + "\n")
+    f.write("\t".join(types)     + "\n")
+    f.write("\t".join(roles)     + "\n")
+    df.to_csv(f, sep="\t", index=False, header=False)
+
+print(f"Fertig: {len(df)} Instanzen, Ziel: digit")
 ```
 
-Das erzeugte `digits_8x8.tab` enthält 1.797 Instanzen, 64 numerische Features und die Zielspalte `digit` (Werte `"0"`–`"9"`). Orange erkennt `.tab`-Dateien direkt; der Zieltyp wird automatisch als kategorisch erkannt.
+Das erzeugte `digits_8x8.tab` enthält 1.797 Instanzen, 64 numerische Features (`continuous / feature`) und die Zielspalte `digit` (`discrete / class`, Werte `"0"`–`"9"`). Orange erkennt Typ und Rolle direkt aus den drei Kopfzeilen – keine manuelle Nacharbeit im File-Widget nötig.
 
 > **Hinweis:** Python und scikit-learn müssen auf dem Rechner installiert sein. Falls nicht vorhanden, kann das Skript alternativ in einer JupyterHub-Umgebung ausgeführt werden.
 
