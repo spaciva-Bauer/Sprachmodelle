@@ -33,7 +33,7 @@
 
 ---
 
-## B | Orange – Erster Workflow
+## B | Orange – Entscheidungsgrenze und Perzeptron
 
 **Aufgabe B1 – Datensatz iris.tab**
 
@@ -48,22 +48,40 @@
 
 ---
 
-**Aufgabe B2 – Perceptron-Widget (Orange3-Educational)**
+**Aufgabe B2 – Polynomial Classification (Educational)**
 
-1. **Verfügbare Einstellungen im Perceptron-Widget:**
+1. **Bedeutung der farbigen Flächen:** Jede Farbe entspricht dem Bereich, den das Modell einer Klasse zuordnet – die Farbflächen sind die **Entscheidungsregionen**, die Grenzen dazwischen die **Entscheidungsgrenzen**.
 
-   ✅ Lernrate (Learning Rate)  
-   ☐ Anzahl Schichten *(nicht verfügbar – das Perzeptron ist einschichtig)*  
-   ✅ Epochen (Max Iterations)  
-   ☐ Aktivierungsfunktion *(fest: Schwellenwert-/Stufenfunktion)*
+2. **Veränderung bei höherem Degree:**
+   - Degree 1: gerade Linie (linear) – entspricht einem Perzeptron
+   - Degree 2: gebogene Kurve (quadratisch) – kann einfache Krümmungen modellieren
+   - Degree 3+: zunehmend komplexere, gewundene Grenzen
 
-2. **Confusion Matrix (typische Ergebnisse mit Standardwerten, 10-fache Kreuzvalidierung):**
+3. **Ab welchem Degree korrekte Trennung:** Bereits ab Degree 2 verbessert sich die Trennung deutlich; ab Degree 3 sind alle drei Klassen in der Regel korrekt getrennt (abhängig von der Achsenwahl).
 
-   Das Perzeptron erreicht bei Iris typischerweise ca. **80–88 % Accuracy**. Iris-setosa wird nahezu perfekt klassifiziert; Verwechslungen treten fast ausschließlich zwischen *versicolor* und *virginica* auf.
+   **Schlussfolgerung für das Perzeptron (Degree 1):** Eine einzelne Gerade kann beim Iris-Datensatz nicht alle drei Klassen gleichzeitig korrekt trennen, da *versicolor* und *virginica* überlappen. Das Perzeptron versagt hier an der fehlenden linearen Separierbarkeit.
 
-   > Da die genauen Werte vom Zufalls-Split abhängen, können SuS hier unterschiedliche Zahlen erhalten – das ist didaktisch wertvoll und kann thematisiert werden.
+> Didaktischer Hinweis: Das Widget eignet sich gut für eine kurze Klassendiskussion – „Warum reicht eine Gerade nicht?" ist eine produktive Einstiegsfrage.
 
-3. **Accuracy:** Typisch ca. **83–88 %** (abhängig von Lernrate und Iterationen).
+---
+
+**Aufgabe B3 – Neural Network als Perzeptron (kein Hidden Layer)**
+
+1. **Verfügbare Einstellungen im Neural Network-Widget:**
+
+   ✅ Lernrate *(über Regularisierung indirekt steuerbar)*  
+   ✅ Anzahl Hidden Layers *(auf leer setzen = Perzeptron-Modus)*  
+   ✅ Max. Iterationen  
+   ✅ Aktivierungsfunktion  
+   ✅ Regularisierung (α)
+
+2. **Confusion Matrix (Neural Network ohne Hidden Layer, Logistic, iris.tab, 10-fache CV):**
+
+   Typische Accuracy: ca. **75–85 %**. Iris-setosa wird nahezu perfekt erkannt; Verwechslungen fast ausschließlich zwischen *versicolor* und *virginica* – konsistent mit dem Polynomial-Classification-Bild bei Degree 1.
+
+3. **Accuracy:** Typisch ca. **78–85 %**.
+
+   **Übereinstimmung mit B2 Degree 1:** Ja – beide modellieren eine lineare Entscheidungsgrenze; die Accuracy sollte in ähnlichem Bereich liegen.
 
 ---
 
@@ -111,14 +129,16 @@ Ab einer bestimmten Netzgröße beginnt das Modell, **Overfitting** zu zeigen: E
 
 ---
 
-## D | Vergleich Perzeptron vs. Neuronales Netz
+## D | Vergleich: Einzel-Neuron vs. neuronales Netz
 
 **Aufgabe D1 – Erwartete Ergebnisse (ionosphere.tab)**
 
-| Modell | Typische Accuracy | Stärken | Schwächen |
-|---|---|---|---|
-| Perzeptron | ca. 80–87 % | Einfach, schnell, interpretierbar | Nur linear separierbare Probleme |
-| Neural Network | ca. 93–96 % | Nicht-lineare Muster, flexibel | Weniger interpretierbar, Overfitting-Risiko |
+| Modell | Konfiguration | Typische Accuracy | Stärken | Schwächen |
+|---|---|---|---|---|
+| NN (Perzeptron-Modus) | kein Hidden Layer, Logistic | ca. 80–87 % | Einfach, schnell, interpretierbar | Nur lineare Entscheidungsgrenzen |
+| Neural Network | 1 Schicht, 100 Neuronen, ReLU | ca. 93–96 % | Nicht-lineare Muster, flexibel | Weniger interpretierbar, Overfitting-Risiko |
+
+> Hinweis: Beide Konfigurationen laufen im selben Neural Network-Widget – der Unterschied ist ausschließlich das Vorhandensein bzw. Fehlen der Hidden Layer. Das macht den Vergleich besonders anschaulich.
 
 ---
 
