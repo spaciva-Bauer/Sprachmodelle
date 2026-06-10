@@ -37,7 +37,7 @@ Orange ist eine Open-Source-Software für visuelle Datenanalyse und maschinelles
 
 3. Wählen Sie im Installer:
 
-   - **Installationspfad** (Standard: `C:\\Users\\\<Benutzername\\\>\\AppData\\Local\\Orange3` oder `C:\\\\Program Files\\Orange3`)
+   - **Installationspfad** (Standard: `C:\Users\<Benutzername\>\AppData\Local\Orange3` oder `C:\Program Files\Orange3`)
 
    - **„Install for all users"** (empfohlen an Schulrechnern, falls Admin-Rechte vorhanden)
 
@@ -66,9 +66,9 @@ Falls auf Schulrechnern keine Admin-Rechte vorhanden sind:
 4. Geben Sie folgenden Befehl ein und bestätigen Sie mit Enter:
 
 ```
-conda create -n orange3 python=3.10    
-conda activate orange3    
-pip install orange3    
+conda create -n orange3 python=3.10      
+conda activate orange3      
+pip install orange3      
 python -m Orange.canvas
 ```
 
@@ -136,14 +136,13 @@ Orange enthält bereits eine Reihe eingebetteter Datensätze, die ohne eigene Da
 
 | Problem | Lösung |
 | - | - |
-| Orange startet nicht | Antivirenprogramm prüfen; Orange ggf. als Ausnahme hinzufügen  
-**Smart App Control unter Windows 11 ggf. deaktivieren** |
+| Orange startet nicht | Antivirenprogramm prüfen; Orange ggf. als Ausnahme hinzufügen;  **Smart App Control unter Windows 11 ggf. deaktivieren** |
 | Add-ons lassen sich nicht installieren | Proxy-Einstellungen der Schule prüfen; ggf. IT fragen |
 | Workflow öffnet sich leer | Überprüfen, ob das passende Add-on installiert ist |
 | Langsame Performance | RAM schließen; keine anderen Programme parallel öffnen |
 
 
-## 8b. Datensatz `digits\\\_8x8.tab` vorbereiten (für Unterrichtseinheit 2)
+## 8b. Datensatz `digits_8x8.tab` vorbereiten (für Unterrichtseinheit 2)
 
 Für das Arbeitsblatt zur Vertiefung (Unterrichtseinheit 2, Abschnitte C und D) wird ein Datensatz mit handgeschriebenen Ziffern benötigt. Dieser liegt nicht direkt in Orange vor und muss einmalig erzeugt und bereitgestellt werden.
 
@@ -156,45 +155,42 @@ Python mit scikit-learn muss auf dem Rechner verfügbar sein. Bei einer bestehen
 1. Öffnen Sie die **Eingabeaufforderung** (cmd) oder **PowerShell** und navigieren Sie in einen geeigneten Ordner, z. B.:
 
 ```
-cd C:\\\\Users\\\\\\\<IhrName\\\>\\\\Desktop
+cd C:\Users\<IhrName\>\Desktop
 ```
 
-1. Speichern Sie folgendes Skript als `make\\\_digits.py` und führen Sie es aus:
+2. Speichern Sie folgendes Skript als `digits.py` und führen Sie es unter Python aus:
+
+
+Inhalt von `digits.py`:
 
 ```
-"%LOCALAPPDATA%\\\\Orange3\\\\python.exe" make\\\_digits.py
+from sklearn.datasets import load_digits
+import pandas as pd
+
+digits = load_digits()
+
+col_names = [f"pixel_{i}" for i in range(64)] + ["digit"]
+types     = ["continuous"] * 64 + ["discrete"]
+roles     = ["feature"]    * 64 + ["class"]
+
+df = pd.DataFrame(digits.data, columns=col_names[:64])
+df["digit"] = digits.target.astype(str)
+
+# Orange .tab-Format: drei Kopfzeilen (Name / Typ / Rolle)
+with open("digits_8x8.tab", "w", encoding="utf-8") as f:
+    f.write("\t".join(col_names) + "\n")
+    f.write("\t".join(types)     + "\n")
+    f.write("\t".join(roles)     + "\n")
+    df.to_csv(f, sep="\t", index=False, header=False)
+
+print(f"Fertig: {len(df)} Instanzen, Ziel: digit")
 ```
 
-Inhalt von `make\\\_digits.py`:
-
-```
-from sklearn.datasets import load\\\_digits    
-import pandas as pd    
-    
-digits = load\\\_digits()    
-    
-col\\\_names = \\\[f"pixel\\\_\\\{i\\\}" for i in range(64)\\\] + \\\["digit"\\\]    
-types     = \\\["continuous"\\\] \\\* 64 + \\\["discrete"\\\]    
-roles     = \\\["feature"\\\]    \\\* 64 + \\\["class"\\\]    
-    
-df = pd.DataFrame(digits.data, columns=col\\\_names\\\[:64\\\])    
-df\\\["digit"\\\] = digits.target.astype(str)    
-    
-\\\# Orange .tab-Format: drei Kopfzeilen (Name / Typ / Rolle)    
-with open("digits\\\_8x8.tab", "w", encoding="utf-8") as f:    
-    f.write("\\\\t".join(col\\\_names) + "\\\\n")    
-    f.write("\\\\t".join(types)     + "\\\\n")    
-    f.write("\\\\t".join(roles)     + "\\\\n")    
-    df.to\\\_csv(f, sep="\\\\t", index=False, header=False)    
-    
-print(f"Fertig: \\\{len(df)\\\} Instanzen, Ziel: digit")
-```
-
-1. Die Datei `digits\\\_8x8.tab` befindet sich nun im aktuellen Ordner.
+3. Die Datei `digits_8x8.tab` befindet sich nun im aktuellen Ordner.
 
 ### Datei bereitstellen
 
-Verteilen Sie `digits\\\_8x8.tab` an die SuS, z. B. über:
+Verteilen Sie `digits_8x8.tab` an die SuS, z. B. über:
 
 - Freigegebenen Netzwerkordner
 
