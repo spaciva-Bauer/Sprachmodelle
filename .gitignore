@@ -1,0 +1,12 @@
+# Git-Metadaten
+.git/
+
+# Archivdateien
+*.zip
+
+# LibreOffice Writer
+*.odt
+*.ott
+# LibreOffice-Sperrdateien (temporär)
+.~lock.*.odt#
+.~lock.*.ott#
